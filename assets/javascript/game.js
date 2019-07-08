@@ -64,6 +64,8 @@ var checkLetter = function(playerLetter) {
         if (correctCounter===0){
             guessesLeft--;
             alert("You have only have " + guessesLeft + " guess(es) left!");
+            document.getElementById("guesses-left").innerHTML = guessesLeft;
+            
             
         } else{
             alert("You are correct!");
@@ -101,6 +103,7 @@ var checkLetter = function(playerLetter) {
             };
         } else {
             alert("You have " + lettersLeft + " letters left!");
+            document.getElementById("letters-left").innerHTML = lettersLeft;
         }
 
 
