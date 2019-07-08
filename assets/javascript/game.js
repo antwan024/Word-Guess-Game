@@ -21,6 +21,7 @@ var pickWord = function() {
 var startGame = function() {
 
     blankWord = [];
+    usedLetters = [];
     randomWord = "";
     pickWord();
     guessesLeft = 10;
@@ -77,12 +78,27 @@ var checkLetter = function(playerLetter) {
             usedLetters.sort();
         };
 
+        if(guessesLeft===0) {
+            alert("You lost!");
+            var play = confirm("Play again?");
+            if(play){
+                startGame();
+            } else {
+                alert("Thanks for playing!");
+            };
+                
+        };
+
 
 
         if(lettersLeft===0){
             alert("You won!");
-            confirm("Play again?");
-            startGame();
+            var play = confirm("Play again?");
+            if(play){
+                startGame();
+            } else {
+                alert("Thanks for playing!");
+            };
         } else {
             alert("You have " + lettersLeft + " letters left!");
         }
