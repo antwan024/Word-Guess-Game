@@ -1,4 +1,5 @@
-var carList = ['Ferrari', 'Honda', 'Lexus', 'Mercedes', 'BMW', 'Acura', 'Lamborghini', 'Toyota', 'Jeep', 'Nissan'];
+// var carList = ['Ferrari', 'Honda', 'Lexus', 'Mercedes', 'BMW', 'Acura', 'Lamborghini', 'Toyota', 'Jeep', 'Nissan'];
+var carList = ['Honda'];
 var blankWord = [];
 var randomWord = "";
 var randomWordLetters = [];
@@ -66,6 +67,7 @@ var checkLetter = function(playerLetter) {
 
     if(lettersLeft===0){
         alert("You won!");
+        confirm("Play again?");
     } else {
         alert("You have " + lettersLeft + " letters left!");
     }
@@ -73,22 +75,45 @@ var checkLetter = function(playerLetter) {
     usedLetters.push(playerLetter);
     usedLetters.sort();
 
+    alert("What is left: " + blankWord + " and you have " + lettersLeft + " left.");
+    alert("Here are your used letters: " + usedLetters);
+
+};
+
+
+
+
+startGame();
+document.onkeyup = function(event) {
+
+    
+    playerLetter = String.fromCharCode(event.which).toLowerCase();
+  
+  
+    checkLetter(playerLetter);
+  
+   
 };
 
 
 
 
 
-startGame();
-checkLetter('h');
-checkLetter('o');
-checkLetter('b');
-checkLetter('x');
-checkLetter('n');
-checkLetter('d');
-checkLetter('a');
-alert("What is left: " + blankWord + " and you have " + lettersLeft + " left.");
-alert("Here are your used letters: " + usedLetters);
+
+// startGame();
+// checkLetter('h');
+// checkLetter('o');
+// checkLetter('b');
+// checkLetter('x');
+// checkLetter('n');
+// checkLetter('d');
+// checkLetter('a');
+// checkLetter('w');
+// checkLetter('v');
+
+
+
+
 
 
 
