@@ -20,6 +20,8 @@ var pickWord = function() {
 
 var startGame = function() {
 
+    blankWord = [];
+    randomWord = "";
     pickWord();
     guessesLeft = 10;
 
@@ -44,42 +46,54 @@ var checkLetter = function(playerLetter) {
     
     alert("Your guess is " + playerLetter + " !");
 
-
-    for(var i=0; i<randomWord.length; i++){
-
-        if(randomWordLetters[i] === playerLetter) {
-            blankWord[i] = playerLetter;
-            correctCounter++;
-            lettersLeft--;
-        };
-    };
-
-
-    if (correctCounter===0){
-        guessesLeft--;
-        alert("You have only have " + guessesLeft + " guess(es) left!");
-        
-    } else{
-        alert("You are correct!");
-        
-    };
-
-
-    if(lettersLeft===0){
-        alert("You won!");
-        confirm("Play again?");
+    if(usedLetters.includes(playerLetter)) {
+        alert("You already used this letter!");
     } else {
-        alert("You have " + lettersLeft + " letters left!");
-    }
 
-    usedLetters.push(playerLetter);
-    usedLetters.sort();
+        for(var i=0; i<randomWord.length; i++){
 
-    alert("What is left: " + blankWord + " and you have " + lettersLeft + " left.");
-    alert("Here are your used letters: " + usedLetters);
+            if(randomWordLetters[i] === playerLetter) {
+                blankWord[i] = playerLetter;
+                correctCounter++;
+                lettersLeft--;
+            };
+        };
+
+
+        if (correctCounter===0){
+            guessesLeft--;
+            alert("You have only have " + guessesLeft + " guess(es) left!");
+            
+        } else{
+            alert("You are correct!");
+            
+        };
+
+
+        if(usedLetters.includes(playerLetter)) {
+            alert("You already used this letter!");
+        } else {
+            usedLetters.push(playerLetter);
+            usedLetters.sort();
+        };
+
+
+
+        if(lettersLeft===0){
+            alert("You won!");
+            confirm("Play again?");
+            startGame();
+        } else {
+            alert("You have " + lettersLeft + " letters left!");
+        }
+
+
+        alert("What is left: " + blankWord + " and you have " + lettersLeft + " left.");
+        alert("Here are your used letters: " + usedLetters);
+
+    };
 
 };
-
 
 
 
@@ -100,16 +114,6 @@ document.onkeyup = function(event) {
 
 
 
-// startGame();
-// checkLetter('h');
-// checkLetter('o');
-// checkLetter('b');
-// checkLetter('x');
-// checkLetter('n');
-// checkLetter('d');
-// checkLetter('a');
-// checkLetter('w');
-// checkLetter('v');
 
 
 
