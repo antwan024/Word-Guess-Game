@@ -58,6 +58,10 @@ var checkLetter = function(playerLetter) {
                 correctCounter++;
                 lettersLeft--;
             };
+
+            
+            document.getElementById("word-blanks").innerHTML = blankWord.join(" ").to;
+
         };
 
 
