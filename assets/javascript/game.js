@@ -20,24 +20,38 @@ var pickWord = function() {
 
 var startGame = function() {
 
+    
     blankWord = [];
     usedLetters = [];
     randomWord = "";
     pickWord();
-    guessesLeft = 10;
+    guessesLeft = 5;
 
     for(var i = 0; i < randomWordLetters.length; i++){
         blankWord.push("_");  
         
     };
 
-    alert("Guess this! " + blankWord);
-    alert("Number of letters: " + randomWordLetters.length);
-    alert("Answer: " + randomWord);
-    alert("Array: " + randomWordLetters);
+    document.getElementById("word-blanks").innerHTML = blankWord.join(" ").toUpperCase();
+    document.getElementById("guesses-left").innerHTML = guessesLeft;
+
+   
 
 
 
+};
+
+var playAgain = function() {
+
+    var play = confirm("Play again?");
+
+    if(play){
+        location.reload();
+        startGame();
+    } else {
+        alert("Thanks for playing!");
+        
+    };
 };
 
 
@@ -59,19 +73,16 @@ var checkLetter = function(playerLetter) {
                 lettersLeft--;
             };
 
-            
-            document.getElementById("word-blanks").innerHTML = blankWord.join(" ").to;
-
         };
 
 
         if (correctCounter===0){
             guessesLeft--;
-            alert("You have only have " + guessesLeft + " guess(es) left!");
+            // alert("You have only have " + guessesLeft + " guess(es) left!");
             document.getElementById("guesses-left").innerHTML = guessesLeft;
             
             
-        } else{
+        } else {
             alert("You are correct!");
             
         };
@@ -82,37 +93,29 @@ var checkLetter = function(playerLetter) {
         } else {
             usedLetters.push(playerLetter);
             usedLetters.sort();
+            document.getElementById("used-letters").innerHTML = usedLetters;
         };
 
         if(guessesLeft===0) {
             alert("You lost!");
-            var play = confirm("Play again?");
-            if(play){
-                startGame();
-            } else {
-                alert("Thanks for playing!");
-            };
+            document.getElementById("letters-left").innerHTML = lettersLeft;
+            playAgain();
                 
         };
 
-
-
         if(lettersLeft===0){
+            
             alert("You won!");
-            var play = confirm("Play again?");
-            if(play){
-                startGame();
-            } else {
-                alert("Thanks for playing!");
-            };
-        } else {
+            document.getElementById("letters-left").innerHTML = lettersLeft;
+            playAgain();
+        } else if (guessesLeft > 0) {
             alert("You have " + lettersLeft + " letters left!");
             document.getElementById("letters-left").innerHTML = lettersLeft;
         }
 
 
-        alert("What is left: " + blankWord + " and you have " + lettersLeft + " left.");
-        alert("Here are your used letters: " + usedLetters);
+        // alert("What is left: " + blankWord + " and you have " + lettersLeft + " left.");
+        // alert("Here are your used letters: " + usedLetters);
 
     };
 
@@ -121,6 +124,7 @@ var checkLetter = function(playerLetter) {
 
 
 startGame();
+
 document.onkeyup = function(event) {
 
     
