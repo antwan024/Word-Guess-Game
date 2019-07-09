@@ -1,3 +1,12 @@
+body {
+
+    background-image: url("../images/checkered-flag_110488-1085.jpg");
+    background-color: blue;
+    
+}
+
+
+
 .jumbotron {
     background-image: url("../images/chuttersnap-gts_Eh4g1lk-unsplash.jpg");
     background-size: cover;
@@ -22,3 +31,10 @@
     background-image: linear-gradient(white, red);
 
 }
+
+
+#banner {
+
+    background-color: orange ;
+}
+
