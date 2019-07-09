@@ -57,7 +57,7 @@ var playAgain = function() {
 };
 
 
-
+//check letter and go through verifications.
 var checkLetter = function(playerLetter) {
 
     correctCounter = 0;
@@ -85,9 +85,21 @@ var checkLetter = function(playerLetter) {
         if (correctCounter===0){
             guessesLeft--;
             document.getElementById("guesses-left").innerHTML = guessesLeft;
+
+            //play honk when incorrect guess is made.
+            var audioElement = document.createElement("audio");
+            audioElement.setAttribute("src", "assets/sounds/Car Horn Honk 1-SoundBible.com-248048021.mp3");
+            audioElement.play();
+
             alert("Wrong! You have " + lettersLeft + " letters left!");
             
         } else {
+
+            //play honk when incorrect guess is made.
+            var audioElement = document.createElement("audio");
+            audioElement.setAttribute("src", "assets/sounds/Tires Squealing 1-SoundBible.com-847455988.mp3");
+            audioElement.play();
+
             alert("You are correct!");
             
         };
@@ -118,7 +130,7 @@ var checkLetter = function(playerLetter) {
             playAgain();
 
         } else if (guessesLeft > 0 && guessesLeft < 5 ) {
-            // alert("Wrong! You have " + lettersLeft + " letters left!");
+            
             document.getElementById("word-blanks").innerHTML = blankWord.join(" ").toUpperCase();
         };
 

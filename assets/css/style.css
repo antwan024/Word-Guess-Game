@@ -1,8 +1,8 @@
 body {
 
     background-image: url("../images/checkered-flag_110488-1085.jpg");
-    background-color: blue;
-    
+    background-size: cover;
+    background-repeat: repeat;
 }
 
 
