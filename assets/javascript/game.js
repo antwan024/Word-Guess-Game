@@ -27,7 +27,7 @@ var startGame = function() {
     blankWord = [];
     usedLetters = [];
     randomWord = "";
-    guessesLeft = 5;
+    guessesLeft = 10;
     pickWord();
 
     for(var i = 0; i < randomWordLetters.length; i++){
@@ -85,7 +85,7 @@ var checkLetter = function(playerLetter) {
         if (correctCounter===0){
             guessesLeft--;
             document.getElementById("guesses-left").innerHTML = guessesLeft;
-            
+            alert("Wrong! You have " + lettersLeft + " letters left!");
             
         } else {
             alert("You are correct!");
@@ -118,7 +118,7 @@ var checkLetter = function(playerLetter) {
             playAgain();
 
         } else if (guessesLeft > 0 && guessesLeft < 5 ) {
-            alert("Wrong! You have " + lettersLeft + " letters left!");
+            // alert("Wrong! You have " + lettersLeft + " letters left!");
             document.getElementById("word-blanks").innerHTML = blankWord.join(" ").toUpperCase();
         };
 

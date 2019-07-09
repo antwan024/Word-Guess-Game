@@ -1,0 +1,24 @@
+.jumbotron {
+    background-image: url("../images/chuttersnap-gts_Eh4g1lk-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#used{
+
+    background-image: linear-gradient(white, yellow); 
+
+}
+
+#won {
+
+    background-image: linear-gradient(white, lime);
+
+}
+
+
+#guesses {
+
+    background-image: linear-gradient(white, red);
+
+}
