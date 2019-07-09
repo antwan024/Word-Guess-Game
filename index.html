@@ -52,40 +52,52 @@
 
 
 
-         
+        <div class="row">
           
-          <div class="card card-default">
-            <div class="card-body">
+          
+          <div class="col-lg-6">
+            <div class="card card-default">
+                <div class="card-body">
 
-              <!-- Number of guesses-left. -->
-              <strong>Guesses Left: </strong> <span id="guesses-left"></span>
+                <!-- Number of guesses-left. -->
+                <strong>Guesses Left: </strong> <span id="guesses-left"></span>
+
+                </div>
 
             </div>
+          </div>
 
+
+          <div class="col-lg-6">
+            <div class="card card-default">
+                <div class="card-body">
+
+                <!-- Number of games won -->
+                <strong>Games Won: </strong> <span id="games-won">0</span>
+
+                </div>
+
+            </div>
+          </div>
+        </div>
+          
+
+          
+          <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-default" >
+                    <div class="card-body">
+
+                <!-- List of letters already used.-->
+                        <strong>Used Letters: </strong> <span id="used-letters">0</span>
+
+                    </div>
+
+                </div>
+            </div>
           </div>
 
           
-
-          
-          <div class="card card-default">
-            <div class="card-body">
-
-              <!-- List of letters already used.-->
-              <strong>Used Letters: </strong> <span id="used-letters">0</span>
-
-            </div>
-
-          </div>
-
-          <div class="card card-default">
-            <div class="card-body">
-
-              <!-- Number of games won -->
-              <strong>Games Won: </strong> <span id="games-won">0</span>
-
-            </div>
-
-          </div>
 
         </div>
 
@@ -93,7 +105,7 @@
 
     </div>
 
-    
+
 
     <script src="assets/javascript/game.js"></script>
 

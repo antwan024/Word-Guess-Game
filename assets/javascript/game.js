@@ -1,5 +1,5 @@
-// var carList = ['Ferrari', 'Honda', 'Lexus', 'Mercedes', 'BMW', 'Acura', 'Lamborghini', 'Toyota', 'Jeep', 'Nissan'];
-var carList = ['Honda'];
+var carList = ['Ferrari', 'Honda', 'Lexus', 'Mercedes', 'BMW', 'Acura', 'Lamborghini', 'Toyota', 'Jeep', 'Nissan'];
+// var carList = ['Honda'];
 var blankWord = [];
 var randomWord = "";
 var randomWordLetters = [];
@@ -118,7 +118,7 @@ var checkLetter = function(playerLetter) {
             playAgain();
 
         } else if (guessesLeft > 0 && guessesLeft < 5 ) {
-            alert("You have " + lettersLeft + " letters left!");
+            alert("Wrong! You have " + lettersLeft + " letters left!");
             document.getElementById("word-blanks").innerHTML = blankWord.join(" ").toUpperCase();
         };
 
