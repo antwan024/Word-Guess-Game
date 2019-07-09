@@ -7,6 +7,7 @@ var guessesLeft = 10;
 var usedLetters = [];
 var correctCounter = 0;
 var lettersLeft = 0;
+var gamesWon = 0;
 
 
 
@@ -24,8 +25,8 @@ var startGame = function() {
     blankWord = [];
     usedLetters = [];
     randomWord = "";
-    pickWord();
     guessesLeft = 5;
+    pickWord();
 
     for(var i = 0; i < randomWordLetters.length; i++){
         blankWord.push("_");  
@@ -34,6 +35,9 @@ var startGame = function() {
 
     document.getElementById("word-blanks").innerHTML = blankWord.join(" ").toUpperCase();
     document.getElementById("guesses-left").innerHTML = guessesLeft;
+    document.getElementById("letters-left").innerHTML = lettersLeft;
+    document.getElementById("used-letters").innerHTML = usedLetters;
+
 
    
 
@@ -46,7 +50,6 @@ var playAgain = function() {
     var play = confirm("Play again?");
 
     if(play){
-        location.reload();
         startGame();
     } else {
         alert("Thanks for playing!");
@@ -73,12 +76,14 @@ var checkLetter = function(playerLetter) {
                 lettersLeft--;
             };
 
+            document.getElementById("word-blanks").innerHTML = blankWord.join(" ").toUpperCase();
+
         };
 
+        document.getElementById("word-blanks").innerHTML = blankWord.join(" ").toUpperCase();
 
         if (correctCounter===0){
             guessesLeft--;
-            // alert("You have only have " + guessesLeft + " guess(es) left!");
             document.getElementById("guesses-left").innerHTML = guessesLeft;
             
             
@@ -100,22 +105,25 @@ var checkLetter = function(playerLetter) {
             alert("You lost!");
             document.getElementById("letters-left").innerHTML = lettersLeft;
             playAgain();
-                
+        } else {
+            document.getElementById("letters-left").innerHTML = lettersLeft;
         };
 
         if(lettersLeft===0){
             
-            alert("You won!");
             document.getElementById("letters-left").innerHTML = lettersLeft;
+            alert("You won!");
+            gamesWon++;
+            document.getElementById("games-won").innerHTML = gamesWon;
             playAgain();
-        } else if (guessesLeft > 0) {
+
+        } else if (guessesLeft > 0 && guessesLeft < 5 ) {
             alert("You have " + lettersLeft + " letters left!");
             document.getElementById("letters-left").innerHTML = lettersLeft;
         }
 
 
-        // alert("What is left: " + blankWord + " and you have " + lettersLeft + " left.");
-        // alert("Here are your used letters: " + usedLetters);
+      
 
     };
 
