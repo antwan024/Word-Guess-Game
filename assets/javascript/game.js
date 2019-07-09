@@ -19,6 +19,8 @@ var pickWord = function() {
     
 };
 
+
+
 var startGame = function() {
 
     
@@ -35,15 +37,12 @@ var startGame = function() {
 
     document.getElementById("word-blanks").innerHTML = blankWord.join(" ").toUpperCase();
     document.getElementById("guesses-left").innerHTML = guessesLeft;
-    document.getElementById("letters-left").innerHTML = lettersLeft;
     document.getElementById("used-letters").innerHTML = usedLetters;
 
-
-   
-
-
-
 };
+
+
+
 
 var playAgain = function() {
 
@@ -56,6 +55,7 @@ var playAgain = function() {
         
     };
 };
+
 
 
 var checkLetter = function(playerLetter) {
@@ -102,16 +102,16 @@ var checkLetter = function(playerLetter) {
         };
 
         if(guessesLeft===0) {
+            document.getElementById("word-blanks").innerHTML = blankWord.join(" ").toUpperCase();
             alert("You lost!");
-            document.getElementById("letters-left").innerHTML = lettersLeft;
             playAgain();
         } else {
-            document.getElementById("letters-left").innerHTML = lettersLeft;
+            document.getElementById("word-blanks").innerHTML = blankWord.join(" ").toUpperCase();
         };
 
         if(lettersLeft===0){
             
-            document.getElementById("letters-left").innerHTML = lettersLeft;
+            document.getElementById("word-blanks").innerHTML = blankWord.join(" ").toUpperCase();
             alert("You won!");
             gamesWon++;
             document.getElementById("games-won").innerHTML = gamesWon;
@@ -119,8 +119,8 @@ var checkLetter = function(playerLetter) {
 
         } else if (guessesLeft > 0 && guessesLeft < 5 ) {
             alert("You have " + lettersLeft + " letters left!");
-            document.getElementById("letters-left").innerHTML = lettersLeft;
-        }
+            document.getElementById("word-blanks").innerHTML = blankWord.join(" ").toUpperCase();
+        };
 
 
       
